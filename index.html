@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- theme color -->
+	<meta name="theme-color" content="#000000">
+	<meta name="msapplication-navbutton-color" content="#000000">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+	<!-- end of theme color -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Digital Clock</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="clock-container">
+		<div class="">
+			<div class="digital-clock">
+				<div class="clock-hours">14</div>
+				<div class="clock-separator">&bull;</div>
+				<div class="clock-minutes">20</div>
+				<div class="clock-separator">&bull;</div>
+				<div class="clock-seconds">34</div>
+			</div>
+			<div class="clock-date">year</div>
+		</div>
+	</div>
+
+
+	<script>
+		const sel = (el) => {
+			return document.querySelector(el)
+		}
+
+		let hours = sel('.clock-hours')
+		let minutes = sel('.clock-minutes')
+		let seconds = sel('.clock-seconds')
+		let clockDate = sel('.clock-date')
+
+		const preserveZeros = (time) => {
+			if (time < 10) {
+				return `0${time}` 
+			} else {
+				return `${time}` 
+			}
+		}
+
+		setInterval(() => {
+			let now = new Date()
+
+			// set time
+			hours.innerHTML = preserveZeros(now.getHours())
+			minutes.innerHTML = preserveZeros(now.getMinutes())
+			seconds.innerHTML = preserveZeros(now.getSeconds())
+
+			// set year
+			let todayDate = ''
+			let nowArr = now.toString().split(' ')
+			for (let i = 0; i < nowArr.length; i++) {
+				if ( i < 4 || i > 5) todayDate += `${nowArr[i]} `
+			}
+			clockDate.innerHTML = todayDate
+		}, 1000) // 1 second
+	</script>
+
+</body>
+</html>

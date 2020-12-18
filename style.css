@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+*{
+	box-sizing: border-box;
+	font-family: 'Rajdhani', sans-serif;
+}
+
+.clock-container{
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	color: rgba(255, 255, 255, 1);
+	display: grid;
+	place-items: center;
+	text-align: center;
+}
+
+.digital-clock{
+	display: flex;
+	font-weight: 200;
+	font-size: 15em;
+	transition: 0.2s all ease-in-out;
+}
+
+.clock-hours, .clock-minutes, .clock-seconds{
+	max-width: 241px;
+	width: 100%;
+	text-align: center;
+	transition: 0.7s all ease-in-out;
+}
+
+.clock-date{
+	padding: 10px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 24px;
+	transform: translateY(-40px);
+}
+
+@media screen and (max-width: 999px){
+	.digital-clock{
+		font-size: 10em;
+	}
+}
+
+@media screen and (max-width: 780px){
+	.digital-clock{
+		font-size: 7em;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.digital-clock{
+		font-size: 4em;
+		margin-bottom: 30px;
+	}
+}
